@@ -1,0 +1,14 @@
+body {
+    background-image: url('../img/wallpaper.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+}
+
+.no-style-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
