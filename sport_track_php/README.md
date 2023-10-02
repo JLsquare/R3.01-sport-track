@@ -32,7 +32,11 @@ sqlite3 ./db/sport_track.db < ./db/create_db.sql
 
 - Modifier si besoin le chemin vers la base de donnée SQLite dans le fichier config.php "DB_FILE"
 
-- Pour tester la base de donnée, executer le script "sqlite_connection_test.php" (marche uniquement juste après la création de la base de donnée)
+- Pour tester la base de donnée, executer le script "test_db.sql", et le script "sqlite_connection_test.php" :
+
+```bash
+sqlite3 ./db/sport_track.db < ./db/test_db.sql
+```
 
 ```bash
 php sqlite_connection_test.php
