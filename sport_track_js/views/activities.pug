@@ -1,0 +1,65 @@
+html
+    include head
+    body
+        include header
+        main.d-flex.flex-column.justify-content-center.align-items-center.h-100
+            .d-flex.h-50.justify-content-center.align-items-center.m-3
+                section.p-4.bg-white.rounded-4.h-100.shadow.mx-auto.overflow-auto
+                    form(action='/activities', method='post')
+                        h2 Liste des activités
+                        hr
+                        table.table.table-bordered.table-striped
+                            thead
+                                tr
+                                    th Description
+                                    th Date
+                                    th Heure Début
+                                    th Heure Fin
+                                    th Durée (seconde)
+                                    th Distance (mètre)
+                                    th Fréq. Cardiaque Min.
+                                    th Fréq. Cardiaque Max.
+                                    th Fréq. Cardiaque Moy.
+                                    th
+                            tbody
+                                each activity, index in activities
+                                    tr(style='cursor: pointer;' data-bs-toggle='collapse' data-bs-target='#collapse' + index aria-expanded='true')
+                                        td= activity.description
+                                        td= activity.activityDate
+                                        td= activity.startTime
+                                        td= activity.endTime
+                                        td= activity.duration
+                                        td= Math.round(activity.distance * 1000)
+                                        td= activity.cardioFrequencyMin
+                                        td= activity.cardioFrequencyMax
+                                        td= Math.round(activity.cardioFrequencyAverage * 100) / 100
+                                        td
+                                            button.btn.btn-danger(type='submit' name='delete_activity' value= activity.activityId) Supprimer
+                                    tr.nested-table.collapse(id='collapse' + index)
+                                        td.p-0(colspan='10')
+                                            table.table.table-bordered.table-striped.m-0
+                                                thead
+                                                    tr
+                                                        th Temps
+                                                        th Freq Cardiaque
+                                                        th Altitude
+                                                        th Longitude
+                                                        th Altitude
+                                                        th
+                                                tbody
+                                                    each entry in activity.entries
+                                                        tr
+                                                            td= entry.dataTime
+                                                            td= entry.cardioFrequency
+                                                            td= entry.latitude
+                                                            td= entry.longitude
+                                                            td= entry.altitude
+                                                            td.text-end
+                                                                button.btn.btn-danger(type='submit' name='delete_activity_entry' value= entry.dataId) Supprimer
+                        if activities.length === 0
+                            p Aucune activité
+            .text-center.d-flex.justify-content-around.w-50
+                .w-100.m-3
+                a.btn.btn-primary.w-100.m-2.shadow(href='/panel') Retour
+                .w-100.m-3
+        include footer

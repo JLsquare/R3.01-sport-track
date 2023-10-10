@@ -1,0 +1,44 @@
+doctype html
+html
+    include head
+    body.vh-100
+        include header
+        main.d-flex.flex-column.justify-content-center.align-items-center.h-100
+            section.my-3.p-4.bg-white.rounded-4.shadow.w-50.mx-auto
+                h2 S&apos;enregistrer
+                hr
+                form.row.row-cols-2.mt-3(action='/register', method='post')
+                    .mb-3
+                        label.form-label(for='name') Nom
+                        input#name.form-control(type='text', placeholder='Nom', name='lastName', required='')
+                    .mb-3
+                        label.form-label(for='surname') Pr&eacute;nom
+                        input#surname.form-control(type='text', placeholder='Prénom', name='firstName', required='')
+                    .mb-3
+                        label.form-label(for='birthdate') Date de Naissance
+                        input#birthdate.form-control(type='date', name='birthdate', required='')
+                    .mb-3
+                        label.form-label(for='sex') Sexe
+                        select#sex.form-control.form-control-sm(name='gender', required='')
+                            option(value='', selected='selected') Choisir votre sexe
+                            option(value='male') Homme
+                            option(value='female') Femme
+                            option(value='other') Autre
+                    .mb-3
+                        label.form-label(for='height') Taille (en centim&egrave;tres)
+                        input#height.form-control(type='number', placeholder='0', min='0', name='height', required='')
+                    .mb-3
+                        label.form-label(for='weight') Poids (en kg)
+                        input#weight.form-control(type='number', placeholder='0', min='0', name='weight', required='')
+                    .mb-3
+                        label.form-label(for='email') Adresse Email
+                        input#email.form-control(type='email', placeholder='nom.e0000000@etud.univ-ubs.fr', name='email', required='')
+                    .mb-3
+                        label.form-label(for='password') Mot de Passe
+                        input#password.form-control(type='password', placeholder='Mot de passe', name='password', required='', minlength='8')
+                    .text-center.d-flex.flex-column.justify-content-around.align-items-center.w-100
+                        button.btn.btn-primary.w-50(type='submit') S&apos;enregistrer
+                        p.mt-2
+                            | Vous avez d&eacute;j&agrave; un compte?&nbsp;
+                            a(href='/') Se connecter
+        include footer

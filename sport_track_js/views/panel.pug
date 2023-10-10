@@ -1,0 +1,12 @@
+html
+    include head
+    body
+        include header
+        main.d-flex.flex-column.justify-content-center.align-items-center.h-100
+            .d-flex.w-100.justify-content-center.align-items-center.my-3
+                include connect_valid
+            .text-center.d-flex.justify-content-around.w-50
+                a.btn.btn-primary.w-100.m-2.shadow(href='/edit') Modifier son profile
+                a.btn.btn-primary.w-100.m-2.shadow(href='/activities') Liste des activit&eacute;s
+                a.btn.btn-primary.w-100.m-2.shadow(href='/upload') T&eacute;l&eacute;charger un fichier
+        include footer

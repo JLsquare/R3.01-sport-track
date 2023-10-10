@@ -1,0 +1,19 @@
+doctype html
+html
+    include head
+    body.vh-100
+        include header
+        main.d-flex.flex-column.justify-content-center.align-items-center.h-100
+            section.my-3.p-4.bg-white.rounded-4.shadow.w-50.mx-auto
+                h2 A propos
+                hr
+                .vh-50
+                    p Ce site a &eacute;t&eacute; r&eacute;alis&eacute; dans le cadre de travaux pratiques de la ressource R3.01
+                    ul
+                        li Jean-Loup Mellion
+                        li Anthony Hasco&euml;t
+                    p
+                        | Retournez a la page principale&nbsp;
+                        a(href='/') ici
+                        | .
+        include footer

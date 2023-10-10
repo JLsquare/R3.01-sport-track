@@ -1,0 +1,46 @@
+doctype html
+html
+    include head
+    body.vh-100
+        include header
+        main.d-flex.flex-column.justify-content-center.align-items-center.h-100
+            section.my-3.p-4.bg-white.rounded-4.shadow.w-50.mx-auto.overflow-auto
+                h2 Modifier son profile
+                hr
+                form.row.vh-50.row-cols-2.mt-3(action='/edit', method='post')
+                    .mb-2
+                        label.form-label(for='name') Nom *
+                        input#name.form-control(type='text', value=(user.lastName), name='lastName', required)
+                    .mb-2
+                        label.form-label(for='surname') Pr&eacute;nom *
+                        input#surname.form-control(type='text', value=(user.firstName), name='firstName', required)
+                    .mb-2
+                        label.form-label(for='birthdate') Date de Naissance *
+                        input#birthdate.form-control(type='date', value=(user.birthdate), name='birthdate', required)
+                    .mb-2
+                        label.form-label(for='sex') Sexe *
+                        select#sex.form-control.form-control-sm(name='gender', required)
+                            option(value='male', selected=(user.gender === 'male')) Homme
+                            option(value='female', selected=(user.gender === 'female')) Femme
+                            option(value='other', selected=(user.gender === 'other')) Autre
+                    .mb-2
+                        label.form-label(for='height') Taille (en centim&egrave;tres) *
+                        input#height.form-control(type='number', value=(user.height), min='0', name='height', required)
+                    .mb-2
+                        label.form-label(for='weight') Poids (en kg) *
+                        input#weight.form-control(type='number', value=(user.weight), min='0', name='weight', required)
+                    .mb-2
+                        label.form-label(for='email') Adresse Email *
+                        input#email.form-control(type='email', disabled='', value=(user.email), name='email', required)
+                    .mb-2
+                        label.form-label(for='password') Mot de Passe
+                        input#password.form-control(type='password', placeholder='Mot de passe', name='password', minlength='8')
+                    .mt-3.d-flex.text-center.justify-content-center.w-100
+                    .text-center.mt-3.d-flex.w-100
+                        button.btn.btn-danger.w-50.mx-3.shadow(type='submit', name='action', value='delete') Supprimer le compte
+                        button.btn.btn-primary.w-50.mx-3.shadow(type='submit', name='action', value='save') Enregistrer
+            .text-center.d-flex.justify-content-around.w-50
+                .w-100.m-3
+                a.btn.btn-primary.w-100.m-2.shadow(href='/panel') Retour
+                .w-100.m-3
+        include footer

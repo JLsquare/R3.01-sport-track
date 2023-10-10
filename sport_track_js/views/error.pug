@@ -1,0 +1,6 @@
+if error
+    .alert.alert-danger.py-2.px-3.my-4(role="alert")
+        span= error
+        if errorlog
+            button.btn.btn-sm.ms-2(data-bs-toggle="collapse", data-bs-target="#errorLog") &#x25BC;
+            #errorLog.collapse.mt-2= errorLog
